@@ -83,23 +83,13 @@ If everything is set up _correctly_, you should see your new app running in your
 
 ### Screenshots
 
-**Login**
 
 
-<img width="267" alt="Screenshot 2025-01-18 at 2 19 19 PM" src="https://github.com/user-attachments/assets/391e9944-c2e8-4df6-8d64-b55a1d9e10bd" />
-
-
-
-**Add task with due date (optional)**
-
-
-<img width="269" alt="Screenshot 2025-01-18 at 2 19 50 PM" src="https://github.com/user-attachments/assets/959a9af2-7cfe-45ee-b79f-94e908d9a353" />
+  <img width="267" alt="Screenshot 2025-01-18 at 2 19 19 PM" src="https://github.com/user-attachments/assets/391e9944-c2e8-4df6-8d64-b55a1d9e10bd" />                                 <img width="269" alt="Screenshot 2025-01-18 at 2 19 50 PM" src="https://github.com/user-attachments/assets/959a9af2-7cfe-45ee-b79f-94e908d9a353" />
 
 
 
 
-**ToDo list**
 
-
-<img width="278" alt="Screenshot 2025-01-18 at 2 19 01 PM" src="https://github.com/user-attachments/assets/a08c00fd-6230-4f18-ad8f-bc5925dac74b" />
+  <img width="278" alt="Screenshot 2025-01-18 at 2 19 01 PM" src="https://github.com/user-attachments/assets/a08c00fd-6230-4f18-ad8f-bc5925dac74b" />
 
