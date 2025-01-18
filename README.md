@@ -3,11 +3,36 @@ This is a ToDo List mobile application build using react-native.
 
 # Getting Started
 
+### Prerequisites
+
+Make sure you have the following installed on your machine:
+
+- [Node.js](https://nodejs.org/) (v14 or higher)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+
+### Installation
+
+1. **Clone the repository:**
+
+```bash
+git clone https://github.com/prajwal-br31/Todo_mobileApp
+cd Todo_mobileApp
+```
+
 >**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
-## Step 1:From the root of the project directory: run npm install 
-## Step 2 : If you are using iOS, cd ios, run pod install 
+## Step 1:From the root of the project directory: 
 
+run 
+```bash
+npm install
+```
+## Step 2 : If you are using iOS, go to ios directory 
+
+```bash
+cd ios
+run pod install 
+```
 Once the dependencies are installed 
 
 First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
@@ -21,7 +46,8 @@ npm start
 
 ## Step 2: Start your Application
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. 
+Let Metro Bundler run in its _own_ terminal. 
+Open a _new_ terminal from the _root_ of your React Native project. 
 Run the following command to start your _Android_ or _iOS_ app:
 
 ### For Android
@@ -42,27 +68,37 @@ If everything is set up _correctly_, you should see your new app running in your
 
 
 ### Features
-Add Tasks: Create new tasks with descriptions and optional reminders.
+  Add Tasks: Create new tasks with descriptions and optional reminders.
 
-Edit Tasks: Modify existing tasks' details and reminders.
+  Edit Tasks: Modify existing tasks' details and reminders.
 
-Delete Tasks: Remove tasks from your list.
+  Delete Tasks: Remove tasks from your list.
 
-Task Completion: Mark tasks as completed or incomplete.
+  Task Completion: Mark tasks as completed or incomplete.
 
-Search & Filter: Search tasks and filter by completion status.
+  Search & Filter: Search tasks and filter by completion status.
 
-Sort Tasks: Sort tasks by creation date in ascending or descending order.
+  Sort Tasks: Sort tasks by creation date in ascending or descending order.
 
 ### Screenshots
 
 **Login**
+
+
 <img width="267" alt="Screenshot 2025-01-18 at 2 19 19 PM" src="https://github.com/user-attachments/assets/391e9944-c2e8-4df6-8d64-b55a1d9e10bd" />
 
 
-**Add task with de date (optional)**
+
+**Add task with due date (optional)**
+
+
 <img width="269" alt="Screenshot 2025-01-18 at 2 19 50 PM" src="https://github.com/user-attachments/assets/959a9af2-7cfe-45ee-b79f-94e908d9a353" />
 
+
+
+
 **ToDo list**
+
+
 <img width="278" alt="Screenshot 2025-01-18 at 2 19 01 PM" src="https://github.com/user-attachments/assets/a08c00fd-6230-4f18-ad8f-bc5925dac74b" />
 
