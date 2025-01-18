@@ -37,3 +37,19 @@ npx react-native run-ios
 ```
 
 If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+
+
+### Features
+Add Tasks: Create new tasks with descriptions and optional reminders.
+
+Edit Tasks: Modify existing tasks' details and reminders.
+
+Delete Tasks: Remove tasks from your list.
+
+Task Completion: Mark tasks as completed or incomplete.
+
+Search & Filter: Search tasks and filter by completion status.
+
+Sort Tasks: Sort tasks by creation date in ascending or descending order.
+
+### Screenshots
