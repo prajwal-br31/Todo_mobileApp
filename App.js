@@ -6,8 +6,8 @@ import TaskList from './components/TaskList';
 import LoginScreen from './components/LoginScreen';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import moment from 'moment';
-import RNPickerSelect from 'react-native-picker-select'; // Import the dropdown component
-import Ionicons from 'react-native-vector-icons/Ionicons'; // For the arrow icon
+import RNPickerSelect from 'react-native-picker-select';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 
 
@@ -15,23 +15,25 @@ function App() {
   const { user, setUser, tasks, addTask, toggleTaskCompletion, deleteTask, sortTasks, editTask } = useTodoContext();
   const [taskText, setTaskText] = useState('');
   const [taskDesc, setTaskDesc] = useState('');
-  const [searchText, setSearchText] = useState(''); // Search text
+  const [searchText, setSearchText] = useState(''); 
   const [loggedIn, setLoggedIn] = useState(false);
   const [filteredTasks, setFilteredTasks] = useState(tasks);
   const [dueDate, setDueDate] = useState(false);
-  const [date, setDate] = useState(new Date()); // Default to current date
-  const [isVisible, setIsVisible] = useState(false); // Controls visibility of the modal
+  const [date, setDate] = useState(new Date());
+  const [isVisible, setIsVisible] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState('All');
-  const [selectedSort, setSelectedSort] = useState('title');
+  const [selectedSort, setSelectedSort] = useState('');
+
+  console.log('selectedFilter', selectedFilter)
   
-   // Filter options
+ 
    const filterOptions = [
     { label: 'All', value: 'All' },
     { label: 'Completed', value: 'Completed' },
     { label: 'Pending', value: 'Pending' },
   ];
 
-  // Sort options
+
   const sortOptions = [
     { label: 'Sort by Title', value: 'title' },
     { label: 'Sort by Due Date', value: 'dueDate' },
@@ -48,23 +50,22 @@ function App() {
     sortTasks(value);
   };
 
-   // Show the date picker modal
+
    const showDatePicker = () => {
     setIsVisible(true);
   };
-  // Hide the date picker modal
+
   const hideDatePicker = () => {
     setIsVisible(false);
   };
 
   // Handle date selection
   const handleConfirm = (selectedDate) => {
-    setDueDate(selectedDate); // Update the date state with the selected date
-    hideDatePicker(); // Close the modal
+    setDueDate(selectedDate); 
+    hideDatePicker();
   };
 
   useEffect(() => {
-    // Check if user is logged in
     AsyncStorage.getItem('user').then((userData) => {
       if (userData) {
         setUser(JSON.parse(userData));
@@ -74,18 +75,18 @@ function App() {
   }, [setUser]);
 
   useEffect(() => {
-    setFilteredTasks(tasks); // Reset filter when tasks are updated
+    setFilteredTasks(tasks); 
   }, [tasks]);
 
   useEffect(() => {
-    // Filter tasks based on search text
+  
     if (searchText === '') {
-      setFilteredTasks(tasks); // If no search text, show all tasks
+      setFilteredTasks(tasks); 
     } else {
       const filtered = tasks.filter((task) =>
         task.title.toLowerCase().includes(searchText.toLowerCase())
       );
-      setFilteredTasks(filtered); // Set filtered tasks based on search
+      setFilteredTasks(filtered);
     }
   }, [searchText, tasks]);
 
@@ -96,15 +97,14 @@ function App() {
   };
 
   const handleAddTask = () => {
-    if (taskText.trim() === '') return; // Prevent adding empty tasks
+    if (taskText.trim() === '') return;
     const newTask = { id: Date.now(), title: taskText, description: taskDesc, completed: false, dueDate: dueDate };
-    addTask(newTask); // Add task using context function
+    addTask(newTask);
     setTaskDesc('');
     setTaskText('');
-    setDueDate(false); // Clear input after adding
+    setDueDate(false); 
   };
 
-  // Filter tasks based on status (All, Completed, Pending)
   const filterTasks = (status) => {
     let filtered = [];
     if (status === 'All') {
@@ -115,10 +115,9 @@ function App() {
       filtered = tasks.filter((task) => !task.completed);
     }
     
-    // Sort the filtered tasks, ensuring completed tasks are at the bottom
     filtered.sort((a, b) => a.completed - b.completed);
     
-    setFilteredTasks(filtered); // Update the filteredTasks state
+    setFilteredTasks(filtered);
   };
 
   if (!loggedIn) {
@@ -132,8 +131,8 @@ function App() {
     <SafeAreaView style={styles.container}>
       <Text style={styles.heading}>To-Do App</Text>
 
-      {/* Search Bar with Icon */}
       <View style={styles.searchContainer}>
+      <Ionicons name="search" size={20} color="white" style={styles.searchIcon} />
         <TextInput
           style={styles.searchInput}
           placeholder="Search tasks..."
@@ -172,14 +171,14 @@ function App() {
         </TouchableOpacity>
 
         <DateTimePickerModal
-          isVisible={isVisible} // Controls visibility of the modal
-          mode="datetime" // Can be 'date' or 'time'
-          date={date} // Pass the current date
-          onConfirm={handleConfirm} // Handle date selection
-          onCancel={hideDatePicker} // Handle cancellation
-          minimumDate={minDate} // Optional: set minimum date
-          maximumDate={new Date(2025, 11, 31)} // Optional: set maximum date
-          headerTextIOS="Pick due date" // iOS-specific header text
+          isVisible={isVisible} 
+          mode="datetime" 
+          date={date}
+          onConfirm={handleConfirm} 
+          onCancel={hideDatePicker} 
+          minimumDate={minDate} 
+          maximumDate={new Date(2025, 11, 31)} 
+          headerTextIOS="Pick due date" 
         />
       </View>
 
@@ -219,9 +218,10 @@ function App() {
             items={filterOptions}
             value={selectedFilter}
             style={pickerSelectStyles}
-            useNativeAndroidPickerStyle={false} // To allow custom styling for Android
+            useNativeAndroidPickerStyle={false}
             Icon={() => (
-              <Ionicons name="chevron-down" size={20} color="gray" style={styles.icon} />
+              <Ionicons name="chevron-down" size={20} style={styles.icon} />
+
             )}
           />
         </View>
@@ -234,7 +234,7 @@ function App() {
             items={sortOptions}
             value={selectedSort}
             style={pickerSelectStyles}
-            useNativeAndroidPickerStyle={false} // To allow custom styling for Android
+            useNativeAndroidPickerStyle={false} 
             Icon={() => (
               <Ionicons name="chevron-down" size={20} color="gray" style={styles.icon} />
             )}
@@ -242,9 +242,9 @@ function App() {
         </View>
       </View>
 
-      {/* Task List - No need for ScrollView since TaskList should already handle it */}
+      {/* Task List */}
       <TaskList
-        tasks={filteredTasks}  /* Display the filtered tasks */
+        tasks={filteredTasks} 
         toggleTaskCompletion={toggleTaskCompletion}
         deleteTask={deleteTask}
         editTask={editTask}  // Keep editTask functionality
@@ -291,11 +291,13 @@ const styles = StyleSheet.create({
   searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 20, // Adjust this value to bring the search bar down
+    marginTop: 20,
     marginBottom: 20,
     borderBottomWidth: 1,
     borderBottomColor: 'black',
     paddingBottom: 5,
+    width: '90%',
+    alignSelf: 'center',
   },
   searchIcon: {
     marginRight: 10,
@@ -311,9 +313,14 @@ const styles = StyleSheet.create({
   },
   addTaskContainer: {
     marginBottom: 5,
+    width: '90%',
+    alignSelf: 'center',
   },
   addDescriptionContainer: {
     marginBottom: 5,
+    width: '90%',
+    alignSelf: 'center',
+
   },
   input: {
     height: 40,
@@ -325,17 +332,24 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   addTaskButton: {
-    backgroundColor: 'blue',
+    backgroundColor: '#1E90FF',
     paddingVertical: 12,
     paddingHorizontal: 40,
-    borderRadius: 5,
+    borderRadius: 25,
+    justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 20,
+    elevation: 5,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 }, 
+    shadowOpacity: 0.2, 
+    shadowRadius: 5,
   },
   addTaskButtonText: {
     color: 'white',
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 'bold',
+    letterSpacing: 1,
   },
   filterSortContainer: {
     flexDirection: 'row',
@@ -357,10 +371,17 @@ const styles = StyleSheet.create({
   },
   logoutButton: {
     backgroundColor: 'purple',
+    borderRadius: 25, 
+    justifyContent: 'center',
+    marginBottom: 20,
+    elevation: 5, 
+    shadowColor: '#000', 
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.2, 
+    shadowRadius: 5, 
     padding: 10,
-    borderRadius: 5,
     alignItems: 'center',
-    marginTop: 'auto', // Push it to the bottom
+    marginTop: 'auto',
     marginBottom: 20,
   },
   logoutButtonText: {
@@ -371,11 +392,13 @@ const styles = StyleSheet.create({
   container_cal: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 0, // Adjust this value to bring the search bar down
+    alignSelf: 'center',
+    marginTop: 0,
     marginBottom: 20,
     borderBottomWidth: 1,
     borderBottomColor: 'black',
     paddingBottom: 5,
+    width: '90%',
   },
   inputBox_cal: {
     flex: 1,
