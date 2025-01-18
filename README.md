@@ -1,4 +1,5 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+This is a ToDo List mobile application build using react-native.
+
 
 # Getting Started
 
@@ -20,7 +21,8 @@ npm start
 
 ## Step 2: Start your Application
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. 
+Run the following command to start your _Android_ or _iOS_ app:
 
 ### For Android
 
@@ -53,3 +55,14 @@ Search & Filter: Search tasks and filter by completion status.
 Sort Tasks: Sort tasks by creation date in ascending or descending order.
 
 ### Screenshots
+
+**Login**
+<img width="267" alt="Screenshot 2025-01-18 at 2 19 19 PM" src="https://github.com/user-attachments/assets/391e9944-c2e8-4df6-8d64-b55a1d9e10bd" />
+
+
+**Add task with de date (optional)**
+<img width="269" alt="Screenshot 2025-01-18 at 2 19 50 PM" src="https://github.com/user-attachments/assets/959a9af2-7cfe-45ee-b79f-94e908d9a353" />
+
+**ToDo list**
+<img width="278" alt="Screenshot 2025-01-18 at 2 19 01 PM" src="https://github.com/user-attachments/assets/a08c00fd-6230-4f18-ad8f-bc5925dac74b" />
+
